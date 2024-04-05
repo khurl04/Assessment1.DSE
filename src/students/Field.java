@@ -21,7 +21,7 @@ public class Field {
         }
     }
 
-    // Perform a tick on each item in the field
+
     public void tick() {
         Random random = new Random();
         for (int i = 0; i < height; i++) {
@@ -36,22 +36,19 @@ public class Field {
         }
     }
 
-    // Tills the specified location and turns it into new Soil
+
     public void till(int row, int col) {
         field[row][col] = new Soil();
     }
 
-    // Returns a copy of the item at the specified location
     public Item get(int row, int col) {
         return field[row][col];
     }
 
-    // Stores a given item at a given location
     public void plant(int row, int col, Item item) {
         field[row][col] = item;
     }
 
-    // Returns the total monetary value of each item in the field
     public double getValue() {
         double totalValue = 0;
         for (int i = 0; i < height; i++) {
@@ -62,7 +59,6 @@ public class Field {
         return totalValue;
     }
 
-    // Returns a string representing the quantities and overall value of the field
     public String getSummary() {
         int applesCount = 0;
         int grainCount = 0;
@@ -71,7 +67,6 @@ public class Field {
         int weedCount = 0;
         double totalValue = 0;
 
-        // Count and calculate total values
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 if (field[i][j] instanceof Apple) {
@@ -90,7 +85,6 @@ public class Field {
             }
         }
 
-        // Build the summary string
         StringBuilder summary = new StringBuilder();
         summary.append("Apples:       ").append(applesCount).append("\n");
         summary.append("Grain:        ").append(grainCount).append("\n");
@@ -104,17 +98,15 @@ public class Field {
         return summary.toString();
     }
 
-    // Overrides toString() method to print out the field
+   
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        // Print column numbers
         result.append(" ");
         for (int i = 1; i <= width; i++) {
             result.append(" ").append(i);
         }
         result.append("\n");
-        // Print row numbers and field contents
         for (int i = 0; i < height; i++) {
             result.append(i + 1).append(" ");
             for (int j = 0; j < width; j++) {
