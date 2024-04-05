@@ -126,6 +126,15 @@ private void plant(Scanner scanner) {
                     System.out.println("You don't have enough funds to buy grain.");
                 }
                 break;
+            case "c":
+                if (bankBalance >= Corn.getBuyCost()) {
+                    field.plant(y - 1, x - 1, new Corn());
+                    bankBalance -= Corn.getBuyCost();
+                    System.out.println("Corn planted at location " + x + ", " + y);
+                } else {
+                    System.out.println("You don't have enough funds to buy corn.");
+                }
+                break;
             default:
                 System.out.println("Invalid choice. Please try again.");
         }
